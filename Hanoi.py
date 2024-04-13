@@ -8,12 +8,13 @@ def hanoi(n, source, temp, target):
     :param target: An empty array.
     :return: None
     """
-    if n > 0:
+    if n == 1:
+        target.append(source.pop())
+    else:
         # move n-1 disks from source to temp:
         hanoi(n - 1, source, target, temp)
         # move disk from source peg to target peg
-        if source:
-            target.append(source.pop())
+        target.append(source.pop())
         # move n-1 disks from temp to target
         hanoi(n - 1, temp, source, target)
 
